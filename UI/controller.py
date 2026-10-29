@@ -47,6 +47,9 @@ class Controller:
         if strumenti is None:
             self._view.show_alert("Errore nel recupero degli strumenti")
             return
+        if len(strumenti) == 0:
+            self._view.show_alert("Nessuno strumento trovato")
+            return
         self._view.lista_strumenti_ricerca.controls.clear()  # Svuoto la lista per evitare duplicati.
         for strumento in strumenti:  # Aggiungo gli strumenti alla lista.
             self._view.lista_strumenti_ricerca.controls.append(ft.Text(str(strumento)))
